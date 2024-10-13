@@ -40,11 +40,6 @@ class XORModel(pl.LightningModule):
         # Loss function: Binary Cross Entropy with Logits
         self.loss = nn.BCEWithLogitsLoss()
 
-        # Initialize weights explicitly
-        torch.nn.init.xavier_uniform_(self.input_layer.weight)
-        torch.nn.init.xavier_uniform_(self.hidden_layer.weight)
-        torch.nn.init.xavier_uniform_(self.output_layer.weight)
-
     def forward(self, input):
         x = self.input_layer(input)
         x = self.relu(x)  # Use ReLU for better gradient flow
