@@ -231,7 +231,18 @@ xor_targets = [y.to(device) for y in xor_targets]
 ## **Second Pitfall: Unstable Output Values**
 
 After fixing the device issue, I ran the training process, but the outputs were strange and did not reflect the XOR truth table.
-  
+
+```
+Input: tensor([0., 0.], device='mps:0')
+Output: tensor([0.1465], device='mps:0', grad_fn=<LinearBackward0>)
+Input: tensor([0., 1.], device='mps:0')
+Output: tensor([0.7000], device='mps:0', grad_fn=<LinearBackward0>)
+Input: tensor([1., 0.], device='mps:0')
+Output: tensor([0.5763], device='mps:0', grad_fn=<LinearBackward0>)
+Input: tensor([1., 1.], device='mps:0')
+Output: tensor([0.5607], device='mps:0', grad_fn=<LinearBackward0>)
+```
+
 This was a clear sign that the network was failing to learn the XOR function.
 
 ### **Solution: Change the Activation Function**
