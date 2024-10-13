@@ -211,6 +211,92 @@ for val in xor_inputs:
 - `load_from_checkpoint()`: This loads the best-performing model from the training process.
 - The `for` loop goes through each input in `xor_inputs`, prints the input, and then gets the output from the trained model.
 
+
+## **First Pitfall: Training and Device Issues**
+
+When I first trained the model, I encountered an issue with the device setup—my inputs were on the CPU, while my model was using an MPS (Apple Silicon) device. This led to runtime errors.
+
+### **Solution: Check Device Compatibility**
+
+To solve this, I moved both the model and the data to the correct device using:
+
+```python
+device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")
+xor_inputs = [x.to(device) for x in xor_inputs]
+xor_targets = [y.to(device) for y in xor_targets]
+```
+
+---
+
+## **Second Pitfall: Unstable Output Values**
+
+After fixing the device issue, I ran the training process, but the outputs were strange:
+
+- For all inputs, the model output the same value (around 0.48).
+  
+This was a clear sign that the network was failing to learn the XOR function.
+
+### **Solution: Change the Activation Function**
+
+It turned out that using `Sigmoid` in the hidden layers caused saturation. This meant the gradients weren't flowing properly during training. I switched to the `ReLU` activation function for the hidden layers:
+
+```python
+self.relu = nn.ReLU()
+```
+
+---
+
+### **Third Pitfall: Choosing the Right Loss Function**
+
+I initially used Mean Squared Error (MSE) as my loss function. While this might seem intuitive for a regression-style problem, it turned out to be a poor choice for XOR, where we're dealing with binary classification (0 or 1).
+
+#### **Solution: Use `BCEWithLogitsLoss`**
+
+`BCEWithLogitsLoss` combines both the sigmoid activation and the binary cross-entropy loss into one function, making it numerically more stable. I updated my loss function:
+
+```python
+self.loss = nn.BCEWithLogitsLoss()
+```
+
+---
+
+## **Fourth Pitfall: Insufficient Training Time**
+
+Even after switching the activation function and loss function, my model wasn’t fully converging. After some experimentation, I realized I needed more epochs to allow the model to converge fully.
+
+### **Solution: Increase Epochs and Tune Learning Rate**
+
+I increased the number of epochs and fine-tuned the learning rate:
+
+```python
+trainer = pl.Trainer(max_epochs=1000)
+```
+
+---
+
+## **Success: The Model Finally Learns XOR**
+
+After applying all these changes, the model started producing the expected results:
+
+```text
+Input: [0, 0] → Output: ~0
+Input: [0, 1] → Output: ~1
+Input: [1, 0] → Output: ~1
+Input: [1, 1] → Output: ~0
+```
+
+This was the correct behavior for XOR!
+
+---
+
+## **Key Learnings**
+
+Here are the main takeaways from this experience:
+- **Activation Functions Matter**: Avoid using `Sigmoid` in hidden layers for non-linear problems—use `ReLU` or `tanh` instead.
+- **Right Loss for the Right Task**: Use `BCEWithLogitsLoss` for binary classification tasks instead of MSE.
+- **Check Devices**: Make sure that all data and model parameters are moved to the appropriate device (CPU, GPU, or MPS).
+- **Allow Time for Convergence**: If the model isn't converging, increasing the number of epochs and fine-tuning the learning rate can help.
+
 ## Final Code (After improvements to get the model to 'learn' XOR)
 
 ```python
