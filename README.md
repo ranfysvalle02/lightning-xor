@@ -611,12 +611,6 @@ for val in xor_inputs:
 
 This blog post has walked you through the implementation of a neural network to solve the XOR problem using PyTorch Lightning. We discussed the significance of XOR in neural network training, compared it to decision trees, and highlighted its real-world applications. By understanding the nuances of the XOR problem, you can better appreciate the capabilities of neural networks and their potential applications across various domains.
 
-### Key Takeaways
-
-- The XOR problem is a classic example of non-linear learning, making it a valuable benchmark for neural networks.
-- Neural networks provide greater flexibility and robustness compared to traditional models like decision trees.
-- The ability to model complex interactions in data allows neural networks to excel in various real-world applications.
-
 ## Real-World Applications of Neural Networks
 
 **The XOR problem**, while seemingly simple, provides a foundational understanding of neural network capabilities. Its ability to learn non-linear relationships has far-reaching implications in various real-world applications:
