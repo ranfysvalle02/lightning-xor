@@ -146,6 +146,16 @@ xor_data = list(zip(xor_inputs, xor_targets))
 train_loader = DataLoader(xor_data, batch_size=1, shuffle=True)
 ```
 
+The content of the xor_data variable:
+```python
+[
+    (tensor([0., 0.]), tensor([0.])),
+    (tensor([0., 1.]), tensor([1.])),
+    (tensor([1., 0.]), tensor([1.])),
+    (tensor([1., 1.]), tensor([0.]))
+]
+```
+
 **Explanation:**
 
 - `zip`: Combines inputs and targets into pairs. For example, it combines `([0, 0], [0])`, `([0, 1], [1])`, etc.
