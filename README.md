@@ -66,8 +66,6 @@ While XOR and GPT-4 may seem vastly different, they share underlying principles 
 
 ## Understanding the XOR Problem
 
-![](https://www.oreilly.com/api/v2/epubs/9781788299879/files/assets/02fd532b-6867-43e5-8e68-1afc7aacc41e.png)
-
 The XOR function is a binary operation that takes two inputs and returns `1` if the inputs are different and `0` if they are the same. The truth table for the XOR function is as follows:
 
 | Input A | Input B | Output |
@@ -78,6 +76,8 @@ The XOR function is a binary operation that takes two inputs and returns `1` if 
 | 1       | 1       | 0      |
 
 ### Why XOR?
+
+![](https://www.oreilly.com/api/v2/epubs/9781788299879/files/assets/02fd532b-6867-43e5-8e68-1afc7aacc41e.png)
 
 The XOR problem is particularly interesting because it cannot be solved by a linear classifier; there is no straight line that can separate the outputs correctly. This non-linearity makes XOR an ideal benchmark for testing the capabilities of neural networks.
 
