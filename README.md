@@ -492,13 +492,6 @@ trainer = pl.Trainer(max_epochs=1000)
 
 3. **Bayesian Optimization:** This is like using a map to find the treasure. It uses past results to guess where the best settings might be.
 
-**Tips for Tuning:**
-
-- **Start with reasonable values:** Don't just throw random numbers in there. Use what others have found works well.
-- **Use a validation set:** This is like a test kitchen to see if your recipe is any good.
-- **Be patient:** Tuning can take time. Don't get discouraged if it doesn't work right away.
-- **Consider automated tools:** There are tools that can do the tuning for you, so you can focus on other things.
-
 By carefully tuning these hyperparameters, you can help your model reach its full potential and perform better on your tasks. By playing with these levers you can turn a good model into a great one!
 
 ---
