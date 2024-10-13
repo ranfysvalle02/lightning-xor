@@ -1,5 +1,7 @@
 # Learning XOR with PyTorch Lightning: An Educational Journey
 
+![](unnamed-ml.jpg)
+
 ## Introduction
 
 In this post, we'll explore the implementation of a simple neural network to solve the XOR (exclusive OR) problem using PyTorch Lightning. The XOR problem is a classic example that showcases the limitations of linear classifiers and highlights the strengths of neural networks. This experience will help you avoid common pitfalls and understand the significance of the XOR function in machine learning.
