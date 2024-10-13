@@ -336,6 +336,51 @@ It turned out that using `Sigmoid` in the hidden layers caused saturation. This 
 self.relu = nn.ReLU()
 ```
 
+## Understanding the Impact of Sigmoid Saturation in Neural Networks
+
+**Sigmoid Activation Function:**
+
+The sigmoid function, often used in neural networks, maps values between 0 and 1. It's particularly useful for binary classification tasks. However, it can lead to a phenomenon called "gradient vanishing" when used in the hidden layers of deep neural networks.
+
+**Gradient Vanishing:**
+
+The gradient is a measure of how much a change in a neuron's weight affects the output of the network. When gradients become very small, the network learns slowly or may even stop learning altogether. This is known as gradient vanishing.
+
+**Sigmoid's Role in Gradient Vanishing:**
+
+The sigmoid function's derivative approaches zero as the input moves towards the extremes (0 or 1). When a neuron's output is close to 0 or 1, its derivative is small. In deep networks, this can cause gradients to become progressively smaller as they propagate back through the layers, leading to gradient vanishing.
+
+**ReLU to the Rescue:**
+
+The Rectified Linear Unit (ReLU) function is a popular alternative to sigmoid because it doesn't suffer from gradient vanishing as much. ReLU is defined as:
+
+```
+ReLU(x) = max(0, x)
+```
+
+This means that ReLU outputs 0 for negative inputs and the input value itself for positive inputs. The derivative of ReLU is either 0 or 1, which helps to prevent gradients from becoming too small.
+
+**Why ReLU Helps:**
+
+1. **Sparsity:** ReLU can introduce sparsity in the network, meaning many neurons can have activations of 0. This can help prevent overfitting.
+2. **Faster Training:** The simpler computation of ReLU compared to sigmoid can lead to faster training times.
+3. **Avoiding Gradient Vanishing:** The constant derivative of ReLU helps to prevent gradients from vanishing, especially in deeper networks.
+
+**Choosing the Right Activation Function: A Quick Comparison of ReLU Variants**
+
+While ReLU is a popular choice, several variants exist to address its limitations. Here's a brief comparison:
+
+| Activation Function | Formula | Advantages | Disadvantages |
+|---|---|---|---|
+| ReLU | max(0, x) | Simple, computationally efficient, avoids gradient vanishing | Can suffer from "dying ReLU" problem (neurons can become permanently inactive) |
+| Leaky ReLU | max(0.01x, x) | Helps address dying ReLU problem, slightly more computationally expensive than ReLU | |
+| Parametric ReLU (PReLU) | max(αx, x) | Learns the negative slope parameter α, even more flexible than Leaky ReLU | Can be computationally more expensive |
+| Exponential Linear Unit (ELU) | x if x > 0; α(exp(x) - 1) otherwise | Addresses dying ReLU problem, can learn negative values | More computationally expensive |
+
+**In Summary:**
+
+By switching from the sigmoid activation function to ReLU in the hidden layers of the neural network, the author was able to address the issue of gradient vanishing. This allowed the network to learn more effectively and achieve better performance on the XOR problem. The choice of ReLU variant depends on factors like the specific problem, the desired properties of the network, and computational resources.
+
 ---
 
 ### **Third Pitfall: Choosing the Right Loss Function**
