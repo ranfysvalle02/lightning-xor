@@ -2,6 +2,19 @@
 
 ![](unnamed-ml.jpg)
 
+Training a model on data from the entire internet brings significant challenges regarding data leakage and highlights the need for transparency in model training. 
+
+### Data Leakage Concerns
+
+1. **Inadvertent Inclusion of Sensitive Data**:
+   - When models are trained on internet data, they risk unintentionally incorporating sensitive or proprietary information. For instance, user-generated content may contain private details that, if included in the training set, can lead to data leakage. 
+
+2. **Overlapping Datasets**:
+   - There’s a high likelihood that training data may overlap with validation or test data. If the model encounters the same data points during training and testing, it might perform exceptionally well in tests but poorly in real-world scenarios. 
+
+3. **Noise and Bias**:
+   - Internet data can be noisy and biased, which may confuse the model. If a model learns from biased information present in the data, it risks perpetuating these biases, impacting its performance and fairness. 
+
 ## Introduction
 
 In this post, we'll explore the implementation of a simple neural network to solve the XOR (exclusive OR) problem using PyTorch Lightning. The XOR problem is a classic example that showcases the limitations of linear classifiers and highlights the strengths of neural networks. This experience will help you avoid common pitfalls and understand the significance of the XOR function in machine learning.
