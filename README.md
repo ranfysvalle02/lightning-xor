@@ -2,7 +2,13 @@
 
 ![](unnamed-ml.jpg)
 
-Training a model on data from the entire internet brings significant challenges regarding data leakage and highlights the need for transparency in model training. 
+**GPT-4 is a type of transformer neural network.**
+
+Transformers are a specific architecture of neural networks that are particularly well-suited for processing sequential data like text. They use a mechanism called [self-attention](https://github.com/ranfysvalle02/ai-self-attention/), which allows the model to weigh the importance of different parts of the input sequence when processing a given word or phrase. This makes them more efficient and effective than traditional recurrent neural networks (RNNs) for many natural language processing tasks.
+
+GPT-4 is a large-scale transformer model, meaning it has a massive number of parameters and has been trained on a huge amount of text data. This allows it to generate highly coherent and informative text, even when prompted with complex or unfamiliar topics.
+
+However, training a model on data from **the entire internet** can bring significant challenges regarding data leakage and highlights the need for transparency in model training. 
 
 ### Data Leakage Concerns
 
@@ -20,6 +26,8 @@ Training a model on data from the entire internet brings significant challenges 
 In this post, we'll explore the implementation of a simple neural network to solve the XOR (exclusive OR) problem using PyTorch Lightning. The XOR problem is a classic example that showcases the limitations of linear classifiers and highlights the strengths of neural networks. This experience will help you avoid common pitfalls and understand the significance of the XOR function in machine learning.
 
 ## From XOR to GPT-4
+
+Unlike traditional recurrent neural networks (RNNs) and convolutional neural networks (CNNs), Transformers rely entirely on [self-attention](https://github.com/ranfysvalle02/ai-self-attention/) mechanisms without using sequence-aligned recurrence. This allows them to process input data in parallel, leading to significant improvements in training speed.
 
 **Similarities Between XOR and GPT-4**
 
