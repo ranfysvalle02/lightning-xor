@@ -66,6 +66,8 @@ While XOR and GPT-4 may seem vastly different, they share underlying principles 
 
 ## Understanding the XOR Problem
 
+![](https://www.gsnetwork.com/wp-content/uploads/2023/01/xor-gate-truth-table.jpg)
+
 The XOR function is a binary operation that takes two inputs and returns `1` if the inputs are different and `0` if they are the same. The truth table for the XOR function is as follows:
 
 | Input A | Input B | Output |
