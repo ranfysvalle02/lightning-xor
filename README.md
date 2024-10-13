@@ -464,8 +464,6 @@ Even after switching the activation function and loss function, my model wasn’
 
 ### **Solution: Increase Epochs and Tune Learning Rate**
 
-I increased the number of epochs and fine-tuned the learning rate:
-
 ```python
 trainer = pl.Trainer(max_epochs=1000)
 ```
