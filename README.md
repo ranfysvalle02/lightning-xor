@@ -259,6 +259,48 @@ self.relu = nn.ReLU()
 
 I initially used Mean Squared Error (MSE) as my loss function. While this might seem intuitive for a regression-style problem, it turned out to be a poor choice for XOR, where we're dealing with binary classification (0 or 1).
 
+
+### Expected XOR Outputs
+The truth table for XOR is:
+
+| Input A | Input B | Output (Expected) |
+|---------|---------|-------------------|
+| 0       | 0       | 0                 |
+| 0       | 1       | 1                 |
+| 1       | 0       | 1                 |
+| 1       | 1       | 0                 |
+
+### Model Outputs
+
+1. **Input: tensor([0., 0.])**
+   - Output: **0.0018** (Expected: **0**)
+   
+2. **Input: tensor([0., 1.])**
+   - Output: **0.9996** (Expected: **1**)
+   
+3. **Input: tensor([1., 0.])**
+   - Output: **0.9995** (Expected: **1**)
+   
+4. **Input: tensor([1., 1.])**
+   - Output: **1.4948e-05** (Expected: **0**)
+
+### Analysis of the Outputs
+- The model is correctly identifying the outputs for the cases where the inputs differ (0, 1) and (1, 0), as both output values are close to **1**. 
+- However, the outputs for (0, 0) and (1, 1) are very close to **0**, but they are not exactly zero. The model is giving non-zero outputs for these cases, which indicates it is struggling to fully learn the XOR function.
+- It seems to be leaning towards **1** for inputs that should return **0**, which indicates a learning issue.
+
+### Potential Reasons and Solutions
+1. **Learning Rate**: Your learning rate might be too high or too low. Try adjusting it to see if the model performs better.
+
+2. **Model Architecture**: Ensure the architecture is appropriate for learning XOR. A more complex network with more hidden neurons may be necessary. You can try increasing the number of neurons in the hidden layers.
+
+3. **Activation Functions**: If you’re using only the output layer's linear activation without a sigmoid or other activation function, try using `torch.sigmoid()` when getting outputs in the testing phase.
+
+4. **Loss Function**: The choice of loss function is crucial in training a neural network. For binary classification problems like XOR, Binary Cross Entropy (BCE) is often a good choice. If you're currently using a different loss function, try switching to BCE. If you're already using BCE and still encountering issues, consider using `BCEWithLogitsLoss`, which combines a sigmoid activation function and BCE loss in one class, making it more numerically stable.
+
+5. **Training Duration**: If the model has not been trained long enough, consider increasing the number of epochs to give it more time to learn.
+
+
 #### **Solution: Use `BCEWithLogitsLoss`**
 
 `BCEWithLogitsLoss` combines both the sigmoid activation and the binary cross-entropy loss into one function, making it numerically more stable. I updated my loss function:
