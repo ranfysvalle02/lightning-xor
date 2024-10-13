@@ -468,7 +468,7 @@ Even after switching the activation function and loss function, my model wasn’
 trainer = pl.Trainer(max_epochs=1000)
 ```
 
-## Fine-Tuning Your Model: The Importance of Hyperparameter Tuning
+## Fine-Tuning Your Model
 
 **Hyperparameters** are like the dials and knobs on a radio—they control how the model works, but aren't learned from the data itself. Tweaking these settings can make a huge difference in how well your model performs.
 
