@@ -433,17 +433,7 @@ Loss functions quantify the difference between the predicted output of a neural 
 
 **Binary Cross-Entropy (BCE) for Binary Classification**
 
-For binary classification problems, where the output is either 0 or 1, BCE is a commonly used loss function. It measures the dissimilarity between the predicted probability and the true label. The formula for BCE is:
-
-```
-BCE_loss = -y * log(p) - (1 - y) * log(1 - p)
-```
-
-where:
-
-* `y` is the true label (0 or 1)
-* `p` is the predicted probability
-
+For binary classification problems, where the output is either 0 or 1, BCE is a commonly used loss function. It measures the dissimilarity between the predicted probability and the true label. 
 BCE is sensitive to the difference between the predicted probability and the true label, especially when the probability is close to the correct label.
 
 **BCEWithLogitsLoss: A Combination of Sigmoid and BCE**
