@@ -462,7 +462,7 @@ By understanding the role of loss functions in neural network training, you can 
 
 Even after switching the activation function and loss function, my model wasn’t fully converging. After some experimentation, I realized I needed more epochs to allow the model to converge fully.
 
-### **Solution: Increase Epochs and Tune Learning Rate**
+### **Solution: Increase Epochs**
 
 ```python
 trainer = pl.Trainer(max_epochs=1000)
