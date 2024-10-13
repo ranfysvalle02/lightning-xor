@@ -230,9 +230,7 @@ xor_targets = [y.to(device) for y in xor_targets]
 
 ## **Second Pitfall: Unstable Output Values**
 
-After fixing the device issue, I ran the training process, but the outputs were strange:
-
-- For all inputs, the model output the same value (around 0.48).
+After fixing the device issue, I ran the training process, but the outputs were strange and did not reflect the XOR truth table.
   
 This was a clear sign that the network was failing to learn the XOR function.
 
