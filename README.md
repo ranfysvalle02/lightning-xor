@@ -617,8 +617,6 @@ This blog post has walked you through the implementation of a neural network to 
 - Neural networks provide greater flexibility and robustness compared to traditional models like decision trees.
 - The ability to model complex interactions in data allows neural networks to excel in various real-world applications.
 
-With this knowledge, you’re better equipped to tackle similar problems and implement neural networks for a wide range of tasks!
-
 ## Real-World Applications of Neural Networks
 
 **The XOR problem**, while seemingly simple, provides a foundational understanding of neural network capabilities. Its ability to learn non-linear relationships has far-reaching implications in various real-world applications:
