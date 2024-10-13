@@ -27,8 +27,6 @@ In this post, we'll explore the implementation of a simple neural network to sol
 
 ## From XOR to GPT-4
 
-Unlike traditional recurrent neural networks (RNNs) and convolutional neural networks (CNNs), Transformers rely entirely on [self-attention](https://github.com/ranfysvalle02/ai-self-attention/) mechanisms without using sequence-aligned recurrence. This allows them to process input data in parallel, leading to significant improvements in training speed.
-
 **Similarities Between XOR and GPT-4**
 
 Despite the vast difference in scale and complexity, XOR and GPT-4 share several key similarities:
