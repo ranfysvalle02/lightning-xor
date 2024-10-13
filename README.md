@@ -97,7 +97,7 @@ While decision trees can model the XOR function by recursively partitioning the 
 
 3. **Robustness**: With appropriate regularization techniques, neural networks can mitigate overfitting, providing more reliable predictions compared to decision trees, especially with smaller datasets.
 
-## Implementing the XOR Model in PyTorch Lightning
+## Implementing XOR in PyTorch Lightning
 
 Now, let's dive into the code implementation of the XOR model using PyTorch Lightning. Below is the complete code:
 
