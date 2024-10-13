@@ -1,4 +1,4 @@
-# Learning XOR with PyTorch Lightning: An Educational Journey
+# Demystifying Neural Networks: From XOR to GPT-4
 
 ![](unnamed-ml.jpg)
 
