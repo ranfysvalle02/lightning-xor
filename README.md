@@ -326,6 +326,8 @@ self.relu = nn.ReLU()
 
 ## Understanding the Impact of Sigmoid Saturation in Neural Networks
 
+![](https://miro.medium.com/v2/resize:fit:1400/1*8q0P3Py3ZlzxhYJunIDz1w.png)
+
 **Sigmoid Activation Function:**
 
 The sigmoid function, often used in neural networks, maps values between 0 and 1. It's particularly useful for binary classification tasks. However, it can lead to a phenomenon called "gradient vanishing" when used in the hidden layers of deep neural networks.
