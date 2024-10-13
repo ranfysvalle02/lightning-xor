@@ -326,7 +326,7 @@ self.relu = nn.ReLU()
 
 ## Understanding the Impact of Sigmoid Saturation in Neural Networks
 
-![](https://miro.medium.com/v2/resize:fit:1400/1*8q0P3Py3ZlzxhYJunIDz1w.png)
+![](https://aiml.com/wp-content/uploads/2023/09/Vanishing-Gradients_neptune-ai.webp)
 
 **Sigmoid Activation Function:**
 
